@@ -1,0 +1,30 @@
+{
+  "name": "machine-health-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for inspecting overall machine health, processes, dmesg, and systemd logs",
+  "main": "dist/index.js",
+  "bin": {
+    "machine-health-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "system-monitoring",
+    "machine-health"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  }
+}
