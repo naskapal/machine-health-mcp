@@ -1,5 +1,30 @@
 # Example MCP Client Configuration
 
+## OpenCode
+
+Add to `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "machine-health": {
+      "type": "local",
+      "command": ["node", "/home/naskun/machine-health-mcp/dist/index.js"],
+      "enabled": true
+    }
+  }
+}
+```
+
+To use the tools, add `use machine-health` to your prompts:
+
+```
+Get system health metrics. use machine-health
+```
+
+See [OpenCode MCP Documentation](https://opencode.ai/docs/mcp-servers/) for more details.
+
 ## Claude Desktop / Claude Code
 
 Add to your MCP client configuration file:
@@ -15,10 +40,10 @@ Add to your MCP client configuration file:
 }
 ```
 
-On macOS, the config file is at:
+On macOS, config file is at:
 `~/Library/Application Support/Claude/claude_desktop_config.json`
 
-On Linux, the config file is at:
+On Linux, config file is at:
 `~/.config/Claude/claude_desktop_config.json`
 
 ## MCP Inspector
@@ -52,8 +77,48 @@ Once connected, you can use these tools:
 4. **get_systemctl_logs** - Get systemd journal logs
 5. **get_system_report** - Generate comprehensive system health report
 
+## Example Usage in OpenCode
+
+```
+Get system health metrics. use machine-health
+```
+
+```
+Show me top 10 processes by CPU usage. use machine-health
+```
+
+```
+Get last 50 kernel error messages. use machine-health
+```
+
+```
+Generate a comprehensive system report. use machine-health
+```
+
+```
+Get nginx service logs from last hour. use machine-health
+```
+
 ## Example Usage in Claude
 
+```
+Get machine health metrics
+```
+
+```
+Show me top 10 processes by CPU usage
+```
+
+```
+Get the last 50 kernel error messages
+```
+
+```
+Generate a comprehensive system report
+```
+
+```
+Get nginx service logs from the last hour
 ```
 Get the machine health metrics
 ```
