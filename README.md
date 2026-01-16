@@ -39,7 +39,26 @@ npm start
 
 ## MCP Configuration
 
-Add this server to your MCP client configuration:
+### OpenCode
+
+Add to `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "machine-health": {
+      "type": "local",
+      "command": ["node", "/path/to/machine-health-mcp/dist/index.js"],
+      "enabled": true
+    }
+  }
+}
+```
+
+### Claude Desktop / Claude Code
+
+Add to your MCP client configuration:
 
 ```json
 {
@@ -170,6 +189,18 @@ To test the server with the MCP Inspector:
 ```bash
 npx @modelcontextprotocol/inspector node dist/index.js
 ```
+
+## Testing with OpenCode
+
+1. Add configuration to `~/.config/opencode/opencode.json` (see above)
+2. Restart OpenCode or reload configuration
+3. Use `use machine-health` in your prompts:
+
+```
+Check system health. use machine-health
+```
+
+See [OpenCode MCP Documentation](https://opencode.ai/docs/mcp-servers/) for more details.
 
 ## Development
 
